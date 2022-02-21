@@ -3,12 +3,12 @@
 
 # Copyright 2022 Hyo Sang Kim. All right reserved.
 # This file is released under the "MIT License Agreement".
-# Plase see the LICENSE file that should have been included as part of this package.
+# Please see the LICENSE file that should have been included as part of this package.
 #
 
 # A PetitWorker is a worker based on QT's controller/worker multi-thread example.
 # It has only basic methods for interacting with the controller.
-# DO NOT modify this file, and create a derived class for future improvement
+# DO NOT modify this file, and create a derived class and use it for future improvement
 
 import time
 import pdb # for debug

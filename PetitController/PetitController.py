@@ -3,10 +3,10 @@
 
 # Copyright 2022 Hyo Sang Kim. All right reserved.
 # This file is released under the "MIT License Agreement".
-# Plase see the LICENSE file that should have been included as part of this package.
+# Please see the LICENSE file that should have been included as part of this package.
 #
 
-# This code is based on the QThread example code that demonstrates controller/worker model
+# These codes are based on the QThread example code that demonstrates controller/worker model
 # DO NOT modify this file and '.py'. Instead, create derived classes.
 
 
@@ -20,14 +20,16 @@ from PyQt5.QtWidgets import QApplication,  QMainWindow,  QWidget,  QLabel,  QTex
 from  PetitWorker import *
 from PetitControlWidgets import *
 
-DEBUG_CODE=2 # 0 for normal operation
+DEBUG_CODE = 2  # 0 for normal operation
+
 
 class PetitControlWindow(QMainWindow):
     """
     An example of  control window class based on the QThread "controller-worker" model 
     """
-    msg_to_worker = pyqtSignal([list]) 
-    def __init__(self,  parent=None):
+    msg_to_worker = pyqtSignal([list])
+
+    def __init__(self,  parent=None, **kwargs):
         super().__init__(parent)
         self.timer = QTimer()
         self.timer.timeout.connect(self.onTimer); self.timer.setInterval(500); self.timer.setSingleShot(True);
@@ -63,6 +65,12 @@ class PetitControlWindow(QMainWindow):
         # The code below is just an example. Reimplement this in the derived class
         mainWidget = QWidget(self)
         vbox = QVBoxLayout(mainWidget)
+        # status
+        hbox0 = QHBoxLayout()
+        self.ledStatusWorker = LEDWidget(None, toolTip='Worker status')
+        hbox0.addWidget(self.ledStatusWorker)
+        hbox0.addStretch()
+        vbox.addLayout(hbox0)
         # Short work
         hbox1 = QHBoxLayout()
         hbox1.addWidget(QLabel('Short work:'))
@@ -127,11 +135,11 @@ class PetitControlWindow(QMainWindow):
             
     def onWorkerStarted(self):
         # reimplement this function in the derive class
-        pass
+        self.ledStatusWorker.turnLED(True)
         
     def onWorkerFinished(self):
         # reimplement this function in the derive class
-        pass
+        self.ledStatusWorker.turnLED(False)
         
     def onTimer(self):
         # reimplement this function in the derive class

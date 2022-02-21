@@ -3,7 +3,7 @@
 
 # Copyright 2022 Hyo Sang Kim. All right reserved.
 # This file is released under the "MIT License Agreement".
-# Plase see the LICENSE file that should have been included as part of this package.
+# Please see the LICENSE file that should have been included as part of this package.
 #
 
 # The icons in this file are based on KDE's oxygen theme

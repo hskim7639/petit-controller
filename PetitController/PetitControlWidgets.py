@@ -3,7 +3,7 @@
 
 # Copyright 2022 Hyo Sang Kim. All right reserved.
 # This file is released under the "MIT License Agreement".
-# Plase see the LICENSE file that should have been included as part of this package.
+# Please see the LICENSE file that should have been included as part of this package.
 #
 
 from PyQt5.QtCore import Qt,  QSize,  QRect,  QPoint,  QTimer
@@ -14,6 +14,7 @@ class LEDWidget(QWidget):
     ''' LED showing status: color, blink once, blink cont '''
     STAT_ON = 1; STAT_OFF = 0
     MODE_STATIC = 0; MODE_BLINK_SINGLE =1; MODE_BLINK_CONT = 2
+
     def __init__(self,  parent=None,  **kwargs):
         super().__init__(parent)
         self.status = self.STAT_OFF; self.mode = self.MODE_STATIC
@@ -34,7 +35,7 @@ class LEDWidget(QWidget):
         
     def _initProperties(self):
         self.toolTip = 'Tool Tip'
-        self.color = QColor('#FF0000'); self.penWidth = 2
+        self.setColor(QColor('#FF0000')); self.penWidth = 2
         self.rect = QRect(0, 0, 24, 24)
         self.interval_ms = 500
         pass
@@ -110,7 +111,8 @@ class LogWindow(QWidget):
     """
     A widget that displays log meassages
     """
-    LogNone=0; LogErr=1;LogWarn=2;LogInfo=3;LogDebug=4;LogDbgDbg=5;
+    LogNone=0; LogErr=1;LogWarn=2;LogInfo=3;LogDebug=4;LogDbgDbg=5
+
     def __init__(self,  parent=None):
         super().__init__(parent)
         self.logLevel=self.LogInfo;
