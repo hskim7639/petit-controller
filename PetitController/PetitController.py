@@ -98,7 +98,7 @@ class PetitControlWindow(QMainWindow):
         
     def closeEvent(self,  event):
         # handle closeEvent (probably) caused when X button is closed.
-        if DEBUG_CODE<=0:
+        if DEBUG_CODE<=3:
             btn = QMessageBox.question(self, 'Quit', 'Do you want to close the application?')
             if btn != QMessageBox.Ok:
                 return
@@ -116,7 +116,7 @@ class PetitControlWindow(QMainWindow):
             self.msg_to_worker.emit(['LongWorkA',  1,  'Abort'])
         
     def onMsgFromWorker(self,  msg):
-        if DEBUG_CODE>=2:
+        if DEBUG_CODE>=4:
             print('onMsgFromWorker {}'.format(msg))
         self._handleMsgFromWorker(msg)
         
@@ -143,7 +143,7 @@ class PetitControlWindow(QMainWindow):
         
     def onTimer(self):
         # reimplement this function in the derive class
-        self.log(self.logWin.LogInfo, 'Hello.')
+        #self.log(self.logWin.LogInfo, 'Hello.')
         pass
         
     def log(self,  level,  msg):
